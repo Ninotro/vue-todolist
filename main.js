@@ -37,7 +37,7 @@ createApp ({
             this.newtask = ""
             
             this.newTaskObject = {} 
-
+                this.error= false
             
         }   
 
@@ -52,13 +52,23 @@ createApp ({
        },
 
        onPressEnter() {
-        this.newTaskObject.content=this.newtask ;
+        if (this.newtask !== "") {
+                
+
+            this.newTaskObject.content=this.newtask ;
             this.newTaskObject.done= false
 
             this.tasks.unshift(this.newTaskObject) ;
             this.newtask = ""
             
             this.newTaskObject = {} 
+                this.error= false
+            
+        }   
+
+        else (
+            this.error= true
+        )
        }
        
     }
