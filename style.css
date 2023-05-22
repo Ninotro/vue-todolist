@@ -16,3 +16,11 @@
     text-align: center;
 }
 
+
+#error-message {
+    color: red;
+}
+
+.active {
+    text-decoration: line-through;
+}

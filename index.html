@@ -13,10 +13,15 @@
         <div id="new-tasks-container">
             <input type="text" placeholder="Inserisci la nuova task" v-model="newtask">
             <button @click="aggiuntiTask">Aggiungi</button>
+            <div id="error-message" v-if="error">
+                <h4>devi scrivere almeno un carattere</h4>
+            </div>
+
         </div>
         <div id="task-container">
-            <ul   v-for="task in tasks">
-                <li class="task" >{{task.content}}  <i class="fa-solid fa-xmark"></i></li>
+            <ul   v-for="(task,idx) in tasks">
+                <li class="task-list":class="{ active: task.done }" @click ="task.done = !task.done"  
+                  >{{task.content}}   <i class="fa-solid fa-xmark" @click ="Rimuovitask(idx)"></i></li>
                
                 
             </ul>

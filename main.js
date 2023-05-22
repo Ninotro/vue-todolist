@@ -3,6 +3,7 @@ const {createApp} = Vue ;
 createApp ({
     data(){
         return {
+            error: false,
             tasks : [
                 {"content" : "fare la spesa",
                  "done" : false
@@ -24,21 +25,34 @@ createApp ({
     },
 
     methods : {
-        aggiuntiTask () {
-
+        aggiuntiTask () {  
             
+            if (this.newtask !== "") {
+                
 
             this.newTaskObject.content=this.newtask ;
             this.newTaskObject.done= false
 
             this.tasks.unshift(this.newTaskObject) ;
             this.newtask = ""
-            this.newTaskObject = {}
-           
             
+            this.newTaskObject = {} 
 
-        }
+            
+        }   
+
+        else (
+            this.error= true
+        )
+        
+        },
+
+       Rimuovitask(indice) {
+        this.tasks.splice(indice,1)
+       }
+       
     }
+
 
     
 
