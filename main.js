@@ -49,6 +49,16 @@ createApp ({
 
        Rimuovitask(indice) {
         this.tasks.splice(indice,1)
+       },
+
+       onPressEnter() {
+        this.newTaskObject.content=this.newtask ;
+            this.newTaskObject.done= false
+
+            this.tasks.unshift(this.newTaskObject) ;
+            this.newtask = ""
+            
+            this.newTaskObject = {} 
        }
        
     }
