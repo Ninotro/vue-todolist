@@ -21,7 +21,9 @@
         <div id="task-container">
             <ul   v-for="(task,idx) in tasks">
                 <li class="task-list":class="{ active: task.done }" 
-                  > <span  @click ="task.done = !task.done" > {{task.content}}</span><i class="fa-solid fa-xmark" @click ="Rimuovitask(idx)"></i></li>
+                  > <span  @click ="task.done = !task.done" >{{idx + 1}}. {{task.content}}</span>
+                  <input type="checkbox" >
+                  <i class="fa-solid fa-xmark" @click ="Rimuovitask(idx)"></i></li>
                
                 
             </ul>
